@@ -1,7 +1,8 @@
-import requests
+# open file in read and read data
+caloriesDataFile = open("caloriesData.txt","r")
 
-url = 'https://adventofcode.com/2022/day/1/input'
-response = requests.get(url)
+caloriesData = caloriesDataFile.read()
 
-with open ('caloriesData.txt','wb') as f:
-  f.write(response.content)
+# print data
+print(caloriesData)
+caloriesDataFile.close()
