@@ -54,5 +54,3 @@ In the example above, the top three Elves are the fourth Elf (with **24000** Cal
 Find the top three Elves carrying the most Calories. **How many Calories are those Elves carrying in total?**
 
 Answer: \* \*
-
-Although it hasn't changed, you can still get your puzzle input.
