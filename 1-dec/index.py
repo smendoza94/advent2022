@@ -27,11 +27,16 @@ for i in elf_calorie_lists:
   calorie_sum = sum(i)
   elf_calorie_sums.append(calorie_sum)
 
+# PART 1
 # print the max value in the sums array
 max_calories = max(elf_calorie_sums)
-print(max_calories)
+print(max_calories) # prints 64929
 
-# prints 64929
+# PART 2
+# sort the sums max to min and save the high three values
+max_3_calories = sorted(elf_calorie_sums, key=None, reverse=True)[:3] # [64929, 64690, 64078]
+# print the total of the highest three values
+print(sum(max_3_calories)) # prints 193697
 
 # close file
 calories_file.close()
