@@ -23,7 +23,6 @@ for i in matches:
     hand_points += 3
   else:
     print('error, my hand was: ' + str(i[1]))
-print('hand points: ' + str(hand_points))
 
 # rules state points are given during win +6, lose +0, or draw +3
 match_points = 0
@@ -39,11 +38,10 @@ for i in matches:
     match_points += 0
   else:
     print('missed match: ' + str(i[0]) + str(i[1]))
-print('match points: ' + str(match_points))
 
 # now sum the total of points from hand and match as my_score and print
 my_score = hand_points + match_points
-print('my total score: ' + str(my_score))
+print('my total score: ' + str(my_score)) # prints 14827
 
 # close file
 file.close()
