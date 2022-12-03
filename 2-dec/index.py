@@ -1,23 +1,49 @@
 # open file in read mode 
-strat_file = open("stratData.txt","r")
+file = open("stratData.txt","r")
 
 # read file data into a variable
-strat_data = strat_file.read()
+data = file.read()
 
-# replace all the /n base text to a ' ' space
-# then convert string to list through splitting 
-# to be able to manipulate the array  
-strat_list = strat_data.replace('\n', ' ').split(" ")
+# split the data by new line and place each letter pair 
+# into an array for each match ie. [['A','Y'],['B','X'],...]
+list = data.split("\n")
+matches = []
+for i in list:
+  matches.append([i[0],i[2]])
 
-my_score = 0
-for i in strat_list:
-  if i == 'X':
-    my_score += 1
-  if i == 'Y':
-    my_score += 2
-  if i == 'Z':
-    my_score += 3
+# rules state points are given based on the hand played
+# add those points accordingly
+hand_points = 0
+for i in matches:
+  if i[1] == "X":
+    hand_points += 1
+  elif i[1] == "Y":
+    hand_points += 2
+  elif i[1] == "Z":
+    hand_points += 3
+  else:
+    print('error, my hand was: ' + str(i[1]))
+print('hand points: ' + str(hand_points))
 
-print(my_score)
+# rules state points are given during win +6, lose +0, or draw +3
+match_points = 0
+for i in matches:
+  # if win gain six points
+  if (i[0] == 'A' and i[1] == 'Y') or (i[0] == 'B' and i[1] == 'Z') or (i[0] == 'C' and i[1] == 'X'):
+    match_points += 6
+  # if draw win three points
+  elif (i[0] == 'A' and i[1] == 'X') or (i[0] == 'B' and i[1] == 'Y') or (i[0] == 'C' and i[1] == 'Z'):
+    match_points += 3
+  # if lose no points
+  elif (i[0] == 'A' and i[1] == 'Z') or (i[0] == 'B' and i[1] == 'X') or (i[0] == 'C' and i[1] == 'Y'):
+    match_points += 0
+  else:
+    print('missed match: ' + str(i[0]) + str(i[1]))
+print('match points: ' + str(match_points))
+
+# now sum the total of points from hand and match as my_score and print
+my_score = hand_points + match_points
+print('my total score: ' + str(my_score))
+
 # close file
-strat_file.close()
+file.close()
