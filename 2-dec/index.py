@@ -45,6 +45,19 @@ my_score = hand_points + match_points
 print('my total score: ' + str(my_score)) # prints 14827
 
 #PART 2
+# new conditions were given where X means lose, Y draw, and Z win
+new_score = 0
+for i in matches:
+  # X means lose +0
+  if i[1] == 'X':
+    new_score += 0
+  # Y means draw +3
+  elif i[1] == 'Y':
+    new_score += 3
+  # Z means win +6 
+  elif i[1] == 'Z':
+    new_score += 6
+print('my new score is: ' + str(new_score))
 
 # close file
 file.close()
