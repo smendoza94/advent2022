@@ -11,6 +11,7 @@ matches = []
 for i in list:
   matches.append([i[0],i[2]])
 
+# PART 1
 # rules state points are given based on the hand played
 # add those points accordingly
 hand_points = 0
@@ -42,6 +43,8 @@ for i in matches:
 # now sum the total of points from hand and match as my_score and print
 my_score = hand_points + match_points
 print('my total score: ' + str(my_score)) # prints 14827
+
+#PART 2
 
 # close file
 file.close()
