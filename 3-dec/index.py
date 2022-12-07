@@ -1,16 +1,18 @@
+import string
+
 # open file in read mode 
 file = open("contentsData.txt","r")
 
 # read file data into a variable
-data = file.read()
+raw_data = file.read()
 
 # split the data by new line in an array
-list = data.split("\n")
+data = raw_data.split("\n")
 
 # divide each rutsack into the two equal compartments 
 # ie. [['Aasawdea','awaWdasd'],['adwD','adkW'],...]
 rutsacks = []
-for i in list:
+for i in data:
   compartment_pair = [i[slice(0,len(i)//2)],i[slice(len(i)//2,len(i))]]
   rutsacks.append(compartment_pair)
 
@@ -22,3 +24,11 @@ for i in rutsacks:
     if j in i[1]:
       common_items.append([j])
       break
+
+# convert letters to points and total for submital 
+alphabet = list(string.ascii_letters)
+points = []
+for i in common_items:
+  points.append(int(alphabet.index(i[0]))+1)
+total_points = sum(points)
+print(total_points) # prints 8139
