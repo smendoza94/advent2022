@@ -9,6 +9,7 @@ raw_data = file.read()
 # split the data by new line in an array
 data = raw_data.split("\n")
 
+# PART 1
 # divide each rutsack into the two equal compartments 
 # ie. [['Aasawdea','awaWdasd'],['adwD','adkW'],...]
 rutsacks = []
@@ -32,3 +33,14 @@ for i in common_items:
   points.append(int(alphabet.index(i[0]))+1)
 total_points = sum(points)
 print(total_points) # prints 8139
+
+# PART 2
+# divide each groups of 3 rutsucks into their own arrays
+group_rutsacks = []
+temp_group = []
+for i in data:
+  if (data.index(i)+1)%3 == 0:
+    group_rutsacks.append(temp_group)
+    temp_group = []
+  temp_group.append(i)
+
