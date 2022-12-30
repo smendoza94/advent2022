@@ -1,1 +1,0 @@
-f'my new score is: {new_score}'
