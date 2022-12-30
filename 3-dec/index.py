@@ -65,5 +65,12 @@ group_rutsacks = [group for group in group_by_three(data) if None not in group]
 # and then uses the intersection method to find the common elements.
 group_common_items = []
 for i in group_rutsacks:
-  group_common_items.append(set(i[0]).intersection(set(i[1])).intersection(set(i[2])))
-print(group_common_items)
+  set_common_item = set(i[0]).intersection(set(i[1])).intersection(set(i[2]))
+  group_common_items.append(''.join(set_common_item))
+
+# convert letters "items" to points and total for submital 
+group_points = []
+for i in group_common_items:
+  group_points.append(int(alphabet.index(i[0]))+1)
+total_group_points = sum(group_points)
+print(total_group_points) # prints 2668
